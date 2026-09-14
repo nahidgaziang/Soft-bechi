@@ -127,9 +127,3 @@ node scripts/3-send-meeting-link.js "client@company.com" "Client Name"
 node scripts/4-send-payment-link.js "client@company.com" "Client Name" "Acme Inc" "Milestone 1 Deliverable" 500000
 ```
 
----
-
-## 🔒 Security
-
-- All secret tokens, API keys, and app passwords are kept strictly in `.env`, which is ignored by `.gitignore`.
-- Admin console is guarded by session token verification.

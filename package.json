@@ -1,0 +1,25 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "onboard": "node scripts/1-onboard-client.js",
+    "check-sign": "node scripts/2-check-signature.js",
+    "send-meeting": "node scripts/3-send-meeting-link.js",
+    "send-payment": "node scripts/4-send-payment-link.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@slack/bolt": "^5.1.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "nodemailer": "^10.0.9",
+    "stripe": "^22.6.2"
+  }
+}

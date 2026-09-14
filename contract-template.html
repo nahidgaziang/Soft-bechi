@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Master Services Agreement — SOFTWARE BECHI</title>
+  <style>
+    @page {
+      size: letter;
+      margin: 0.45in;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      line-height: 1.35;
+      margin: 0;
+      padding: 0;
+      font-size: 10.5px;
+    }
+    .header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #0f172a;
+    }
+    .logo span {
+      color: #0284c7;
+    }
+    .doc-title {
+      text-align: right;
+    }
+    .doc-title h1 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .doc-meta {
+      font-size: 9.5px;
+      color: #64748b;
+    }
+    .parties-table {
+      width: 100%;
+      margin-bottom: 8px;
+      border-collapse: collapse;
+    }
+    .parties-table td {
+      width: 50%;
+      vertical-align: top;
+      padding: 6px 10px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      font-size: 10px;
+    }
+    .party-title {
+      font-weight: 700;
+      font-size: 9.5px;
+      text-transform: uppercase;
+      color: #475569;
+      margin-bottom: 2px;
+    }
+    .party-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      margin-top: 8px;
+      margin-bottom: 3px;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 2px;
+    }
+    p {
+      margin: 0 0 5px 0;
+    }
+    .highlight-box {
+      background: #f0f9ff;
+      border-left: 3px solid #0284c7;
+      padding: 5px 8px;
+      margin: 5px 0;
+      font-size: 10px;
+    }
+    .signature-container {
+      margin-top: 10px;
+    }
+    .sig-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+    }
+    .sig-cell {
+      width: 50%;
+      vertical-align: top;
+      padding: 10px 14px;
+      border: 1px dashed #94a3b8;
+      background: #fafafa;
+      height: 140px;
+    }
+    .sig-placeholder-space {
+      height: 52px;
+      border-bottom: 1px solid #334155;
+      margin-bottom: 6px;
+    }
+    .sig-line {
+      font-size: 10px;
+      line-height: 1.45;
+    }
+    .sig-label {
+      font-weight: 700;
+      color: #0f172a;
+      display: inline-block;
+      width: 85px;
+    }
+    .footer {
+      margin-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 5px;
+      font-size: 9px;
+      color: #94a3b8;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">SOFTWARE <span>BECHI</span></div>
+    <div class="doc-title">
+      <h1>Master Services Agreement</h1>
+      <div class="doc-meta">Doc Ref: SB-{{DATE}}-{{CLIENT_COMPANY}}</div>
+    </div>
+  </div>
+
+  <!-- Parties -->
+  <table class="parties-table">
+    <tr>
+      <td>
+        <div class="party-title">Service Provider</div>
+        <div class="party-name">SOFTWARE BECHI Inc.</div>
+        <div>Email: admin@softwarebechi.com</div>
+      </td>
+      <td>
+        <div class="party-title">Client</div>
+        <div class="party-name">{{CLIENT_NAME}}</div>
+        <div>Company: {{CLIENT_COMPANY}} | Email: {{CLIENT_EMAIL}}</div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Recitals -->
+  <p>This Master Services Agreement is entered into as of <strong>{{DATE}}</strong> between <strong>SOFTWARE BECHI Inc.</strong> ("Provider") and <strong>{{CLIENT_COMPANY}}</strong> ("Client").</p>
+
+  <!-- 1. Scope of Work -->
+  <div class="section-title">1. Scope of Work &amp; Deliverables</div>
+  <div class="highlight-box">
+    <strong>Project Scope:</strong> {{PROJECT_TYPE}}<br>
+    <strong>Primary Deliverable:</strong> Production architecture, automated deployment pipelines, integration tests, and technical handover documentation.
+  </div>
+
+  <!-- 2. Fees and Milestone Terms -->
+  <div class="section-title">2. Financial &amp; Payment Terms</div>
+  <div class="highlight-box">
+    <strong>Total Project Consideration:</strong> ${{DEAL_AMOUNT}} USD via secure Stripe sandbox/production portal prior to milestone code deployment.
+  </div>
+
+  <!-- 3. Intellectual Property & Confidentiality -->
+  <div class="section-title">3. Intellectual Property Rights &amp; Confidentiality</div>
+  <p>Upon full settlement of invoiced fees, all custom source code, documentation, schemas, and assets engineered under this Agreement shall become the sole and exclusive intellectual property of the Client. Both parties agree to hold all proprietary systems, credentials, and business insights strictly confidential under standard NDA covenants.</p>
+
+  <!-- 4. Signatures -->
+  <div class="signature-container">
+    <div class="section-title">4. Execution &amp; Binding Signatures</div>
+    <p>Both parties acknowledge that electronic signatures via SignWell carry the same legal weight as handwritten signatures under the ESIGN Act and UETA regulations.</p>
+
+    <table class="sig-table">
+      <tr>
+        <td class="sig-cell">
+          <div class="party-title">Signed For: Client</div>
+          <div class="sig-placeholder-space"></div>
+          <div class="sig-line">
+            <div><span class="sig-label">By:</span> Authorized Signature</div>
+            <div><span class="sig-label">Printed Name:</span> {{CLIENT_NAME}}</div>
+            <div><span class="sig-label">Company:</span> {{CLIENT_COMPANY}}</div>
+            <div><span class="sig-label">Date:</span> {{DATE}}</div>
+          </div>
+        </td>
+        <td class="sig-cell">
+          <div class="party-title">Signed For: SOFTWARE BECHI Inc.</div>
+          <div class="sig-placeholder-space"></div>
+          <div class="sig-line">
+            <div><span class="sig-label">By:</span> Authorized Signature</div>
+            <div><span class="sig-label">Printed Name:</span> {{ADMIN_NAME}}</div>
+            <div><span class="sig-label">Title:</span> {{ADMIN_TITLE}}</div>
+            <div><span class="sig-label">Date:</span> {{DATE}}</div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="footer">
+    SOFTWARE BECHI Inc. • Master Services Agreement • Generated for {{CLIENT_COMPANY}} • ESIGN &amp; UETA Compliant
+  </div>
+
+</body>
+</html>

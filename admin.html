@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operations Console | SOFTWARE BECHI</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="top-accent-line"></div>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand-logo">
+        <div class="logo-icon"><i class="fa-solid fa-cube"></i></div>
+        <span class="logo-text">SOFTWARE <span class="accent-text">BECHI</span> <span class="admin-badge">ADMIN</span></span>
+      </a>
+
+      <div class="nav-actions">
+        <span class="admin-session-pill" id="sessionPill" style="display: none;">
+          <i class="fa-solid fa-shield-halved"></i> Verified Admin
+        </span>
+        <button id="btnAdminLogout" class="btn btn-secondary btn-sm" style="display: none;">
+          <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+        </button>
+        <a href="/" class="btn btn-secondary btn-sm">
+          <i class="fa-solid fa-arrow-left"></i> Public Site
+        </a>
+        <a href="/onboard" class="btn btn-primary btn-sm">
+          <i class="fa-solid fa-user-plus"></i> Client Intake Page
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Verification Login View -->
+  <div class="admin-login-wrapper" id="adminLoginView">
+    <div class="admin-login-card">
+      <div class="admin-login-header">
+        <div class="admin-lock-icon">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <h1 class="admin-login-title">Admin Verification</h1>
+        <p class="admin-login-sub">
+          Enter authorized credentials to unlock internal operations and client contract verification.
+        </p>
+      </div>
+
+      <form id="formAdminLogin" class="pipeline-form">
+        <div id="adminLoginError" class="admin-login-error" style="display: none;">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span id="adminLoginErrorMsg">Invalid username or password.</span>
+        </div>
+
+        <div class="form-group">
+          <label for="adminUsername"><i class="fa-regular fa-user"></i> Administrator Username</label>
+          <input type="text" id="adminUsername" name="adminUsername" placeholder="e.g. admin" required autocomplete="username">
+        </div>
+
+        <div class="form-group">
+          <label for="adminPassword"><i class="fa-solid fa-key"></i> Administrator Password</label>
+          <input type="password" id="adminPassword" name="adminPassword" placeholder="••••••••" required autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="btnAdminLoginSubmit" style="width: 100%; margin-top: 0.5rem;">
+          <i class="fa-solid fa-shield-check"></i> Verify &amp; Unlock Console
+        </button>
+      </form>
+
+      <div class="admin-login-hint">
+        <i class="fa-solid fa-circle-info"></i> Default system credentials: <code>admin</code> / <code>softwarebechi2026</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin Console Section (Locked until verified) -->
+  <main class="console-section" id="adminConsoleView" style="margin-top: 3rem; display: none;">
+    <div class="section-header text-center">
+      <div class="section-pill">Internal Operations</div>
+      <h1 class="section-title">Operations &amp; Pipeline Control Room</h1>
+      <p class="section-sub">
+        Verify SignWell signatures, dispatch Calendly strategy links, generate Stripe sandbox invoices, and monitor system telemetry.
+      </p>
+    </div>
+
+    <!-- Live Stage Tracker -->
+    <div class="stage-tracker" id="stageTracker">
+      <div class="stage-step active" id="step-node-1">
+        <div class="step-circle"><i class="fa-brands fa-slack"></i></div>
+        <div class="step-info">
+          <div class="step-num">Step 1</div>
+          <div class="step-name">Slack Lead</div>
+        </div>
+      </div>
+      <div class="step-connector" id="conn-1"></div>
+
+      <div class="stage-step" id="step-node-2">
+        <div class="step-circle"><i class="fa-solid fa-database"></i></div>
+        <div class="step-info">
+          <div class="step-num">Step 2</div>
+          <div class="step-name">HubSpot Deal</div>
+        </div>
+      </div>
+      <div class="step-connector" id="conn-2"></div>
+
+      <div class="stage-step" id="step-node-3">
+        <div class="step-circle"><i class="fa-solid fa-file-signature"></i></div>
+        <div class="step-info">
+          <div class="step-num">Step 3</div>
+          <div class="step-name">SignWell Doc</div>
+        </div>
+      </div>
+      <div class="step-connector" id="conn-3"></div>
+
+      <div class="stage-step" id="step-node-4">
+        <div class="step-circle"><i class="fa-solid fa-user-check"></i></div>
+        <div class="step-info">
+          <div class="step-num">Step 4</div>
+          <div class="step-name">Admin Verify</div>
+        </div>
+      </div>
+      <div class="step-connector" id="conn-4"></div>
+
+      <div class="stage-step" id="step-node-5">
+        <div class="step-circle"><i class="fa-solid fa-calendar-check"></i></div>
+        <div class="step-info">
+          <div class="step-num">Step 5</div>
+          <div class="step-name">Calendly</div>
+        </div>
+      </div>
+      <div class="step-connector" id="conn-5"></div>
+
+      <div class="stage-step" id="step-node-6">
+        <div class="step-circle"><i class="fa-brands fa-stripe-s"></i></div>
+        <div class="step-info">
+          <div class="step-num">Step 6</div>
+          <div class="step-name">Stripe Pay</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Console Box -->
+    <div class="console-box">
+      <!-- Tabs -->
+      <div class="console-tabs">
+        <button class="tab-btn active" data-tab="tab-verify" id="tabBtnVerify">
+          <i class="fa-solid fa-signature"></i> 1. Verify SignWell Status
+        </button>
+        <button class="tab-btn" data-tab="tab-meeting" id="tabBtnMeeting">
+          <i class="fa-solid fa-calendar-days"></i> 2. Dispatch Calendly Link
+        </button>
+        <button class="tab-btn" data-tab="tab-payment" id="tabBtnPayment">
+          <i class="fa-brands fa-stripe"></i> 3. Generate Stripe Payment
+        </button>
+      </div>
+
+      <div class="console-body">
+        <!-- Tab 1: Verify SignWell E-Sign -->
+        <div class="tab-pane active" id="tab-verify">
+          <form id="formVerify" class="pipeline-form">
+            <div class="form-group">
+              <label for="verifyDocId"><i class="fa-solid fa-key"></i> SignWell Document ID</label>
+              <input type="text" id="verifyDocId" name="verifyDocId" placeholder="Enter SignWell document ID (e.g. sw_doc_...)" required>
+            </div>
+
+            <div class="form-footer">
+              <div class="form-hint">
+                <i class="fa-solid fa-circle-info"></i> Queries SignWell API to verify execution, advances HubSpot deal stage to 'Contract Signed', and notifies Slack.
+              </div>
+              <button type="submit" class="btn btn-primary" id="btnSubmitVerify">
+                <i class="fa-solid fa-magnifying-glass"></i> Check &amp; Verify Signature
+              </button>
+            </div>
+          </form>
+
+          <!-- Dynamic Verification Result Card -->
+          <div id="verifyResultContainer" style="display: none;"></div>
+        </div>
+
+        <!-- Tab 2: Dispatch Calendly -->
+        <div class="tab-pane" id="tab-meeting">
+          <form id="formMeeting" class="pipeline-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="meetingEmail"><i class="fa-solid fa-envelope"></i> Client Email</label>
+                <input type="email" id="meetingEmail" name="meetingEmail" placeholder="client@company.com" required>
+              </div>
+              <div class="form-group">
+                <label for="meetingName"><i class="fa-solid fa-user"></i> Client Name</label>
+                <input type="text" id="meetingName" name="meetingName" placeholder="Client Name" required>
+              </div>
+            </div>
+
+            <div class="form-footer">
+              <div class="form-hint">
+                <i class="fa-solid fa-circle-info"></i> Dispatches Calendly kickoff invitation to client, updates HubSpot CRM stage, and alerts Slack.
+              </div>
+              <button type="submit" class="btn btn-primary" id="btnSubmitMeeting">
+                <i class="fa-solid fa-paper-plane"></i> Send Calendly Invite
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Tab 3: Dispatch Stripe Payment -->
+        <div class="tab-pane" id="tab-payment">
+          <form id="formPayment" class="pipeline-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="payEmail"><i class="fa-solid fa-envelope"></i> Client Email</label>
+                <input type="email" id="payEmail" name="payEmail" placeholder="client@company.com" required>
+              </div>
+              <div class="form-group">
+                <label for="payName"><i class="fa-solid fa-user"></i> Client Name</label>
+                <input type="text" id="payName" name="payName" placeholder="Client Name" required>
+              </div>
+              <div class="form-group">
+                <label for="payCompany"><i class="fa-solid fa-building"></i> Company</label>
+                <input type="text" id="payCompany" name="payCompany" placeholder="Company Name" required>
+              </div>
+              <div class="form-group">
+                <label for="payService"><i class="fa-solid fa-briefcase"></i> Deliverable Description</label>
+                <input type="text" id="payService" name="payService" placeholder="e.g. Milestone 1: Architecture & Handover" required>
+              </div>
+              <div class="form-group full-width">
+                <label for="payAmount"><i class="fa-solid fa-dollar-sign"></i> Amount (USD)</label>
+                <input type="number" id="payAmount" name="payAmount" placeholder="e.g. 5000" required>
+              </div>
+            </div>
+
+            <div class="form-footer">
+              <div class="form-hint">
+                <i class="fa-solid fa-circle-info"></i> Creates Stripe Sandbox Payment Link, emails invoice, moves deal to Closed Won, and notifies Slack.
+              </div>
+              <button type="submit" class="btn btn-primary" id="btnSubmitPayment">
+                <i class="fa-brands fa-stripe-s"></i> Generate &amp; Send Stripe Payment Link
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Real-Time Terminal Activity Stream -->
+      <div class="console-terminal">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="terminal-title">
+            <i class="fa-solid fa-terminal"></i> Live System Telemetry Stream
+          </div>
+          <button class="terminal-clear" id="btnClearTerminal" title="Clear log">
+            <i class="fa-solid fa-trash-can"></i> Clear
+          </button>
+        </div>
+        <div class="terminal-body" id="terminalStream">
+          <div class="terminal-line log-system">
+            <span class="term-time">[SYSTEM READY]</span> SOFTWARE BECHI Orchestration Engine Online.
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="margin-top: 5rem;">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-text">SOFTWARE <span class="accent-text">BECHI</span></span>
+        <p class="footer-tagline">Internal Operations Console</p>
+      </div>
+      <p class="footer-copy">&copy; 2026 SOFTWARE BECHI Inc. Internal use only.</p>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

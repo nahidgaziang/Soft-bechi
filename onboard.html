@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Onboarding | SOFTWARE BECHI</title>
+  <meta name="description" content="Start your project with SOFTWARE BECHI. Submit your requirements to initiate agreement generation and kickoff.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <div class="top-accent-line"></div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="brand-logo">
+        <div class="logo-icon"><i class="fa-solid fa-cube"></i></div>
+        <span class="logo-text">SOFTWARE <span class="accent-text">BECHI</span></span>
+      </a>
+
+      <div class="nav-actions">
+        <a href="/" class="btn btn-secondary btn-sm">
+          <i class="fa-solid fa-arrow-left"></i> Back to Website
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Onboard Container -->
+  <main class="onboard-page">
+    <div class="onboard-wrapper">
+      
+      <div class="onboard-header">
+        <span class="section-pill">Client Intake</span>
+        <h1 class="onboard-title">Start Your Project</h1>
+        <p class="onboard-subtitle">
+          Please fill in your company details and project scope. Submitting will register your company in our CRM, notify our engineering leads, and prepare your initial services agreement.
+        </p>
+      </div>
+
+      <!-- Main Onboarding Form -->
+      <div class="onboard-card" id="onboardCard">
+        <form id="clientOnboardForm" class="clean-form">
+          <div class="form-grid">
+            
+            <div class="form-group">
+              <label for="fullName">
+                <i class="fa-regular fa-user"></i> Full Name <span class="req">*</span>
+              </label>
+              <input type="text" id="fullName" name="fullName" placeholder="e.g. Alex Mercer" required autocomplete="name">
+            </div>
+
+            <div class="form-group">
+              <label for="workEmail">
+                <i class="fa-regular fa-envelope"></i> Work Email <span class="req">*</span>
+              </label>
+              <input type="email" id="workEmail" name="workEmail" placeholder="alex@company.com" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+              <label for="companyName">
+                <i class="fa-regular fa-building"></i> Company / Organization <span class="req">*</span>
+              </label>
+              <input type="text" id="companyName" name="companyName" placeholder="e.g. Mercer Technologies" required autocomplete="organization">
+            </div>
+
+            <div class="form-group">
+              <label for="projectType">
+                <i class="fa-solid fa-laptop-code"></i> Project Type <span class="req">*</span>
+              </label>
+              <select id="projectType" name="projectType" required>
+                <option value="" disabled selected>Select primary service needed</option>
+                <option value="Enterprise Web Application">Enterprise Web Application</option>
+                <option value="AI Agents & Automation">AI Agents &amp; Workflow Automation</option>
+                <option value="Mobile App Development">Mobile App Development (iOS &amp; Android)</option>
+                <option value="Cloud Architecture & DevOps">Cloud Architecture &amp; DevOps</option>
+                <option value="Custom API & Microservices">Custom API &amp; Microservices</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="budget">
+                <i class="fa-solid fa-dollar-sign"></i> Estimated Budget (USD) <span class="req">*</span>
+              </label>
+              <input type="number" id="budget" name="budget" placeholder="e.g. 10000" min="500" required>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="projectNotes">
+                <i class="fa-regular fa-comment-dots"></i> Project Overview &amp; Goals <span class="opt">(Optional)</span>
+              </label>
+              <textarea id="projectNotes" name="projectNotes" rows="4" placeholder="Briefly describe your requirements, key deliverables, or target launch timeline..."></textarea>
+            </div>
+
+          </div>
+
+          <div class="form-actions">
+            <div class="privacy-note">
+              <i class="fa-solid fa-lock"></i> Your information is kept strictly confidential under NDA.
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" id="btnSubmitOnboard">
+              <span>Submit &amp; Generate Agreement</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+
+        <!-- Success Confirmation State (Hidden initially) -->
+        <div class="onboard-success" id="onboardSuccess" style="display: none;">
+          <div class="success-icon">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <h2 class="success-title">Onboarding Successfully Submitted</h2>
+          <p class="success-desc" id="successMessage">
+            Thank you! Your project details have been recorded and our engineering team has been notified.
+          </p>
+
+          <div class="success-checklist">
+            <div class="check-item">
+              <i class="fa-solid fa-check text-green"></i>
+              <span>Engineering team alerted in <strong>#new-clients</strong> on Slack</span>
+            </div>
+            <div class="check-item">
+              <i class="fa-solid fa-check text-green"></i>
+              <span>Company &amp; Deal recorded in <strong>HubSpot CRM</strong></span>
+            </div>
+            <div class="check-item">
+              <i class="fa-solid fa-check text-green"></i>
+              <span>Master Services Agreement created via <strong>SignWell</strong></span>
+            </div>
+          </div>
+
+          <!-- Direct SignWell Link Action -->
+          <div class="action-box" id="actionSignWellBox" style="display: none;">
+            <p class="action-hint">You can review and electronically sign your agreement right now:</p>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" id="btnSignContract">
+              <i class="fa-solid fa-file-signature"></i> Review &amp; E-Sign Agreement on SignWell
+            </a>
+          </div>
+
+          <div class="next-steps-card">
+            <h4>What happens next?</h4>
+            <ol>
+              <li>Once you sign the agreement, our admin will verify and lock the contract.</li>
+              <li>You will receive an email with a <strong>Calendly link</strong> to book our technical kickoff session.</li>
+              <li>Following the kickoff meeting, milestone invoicing will be handled securely via Stripe.</li>
+            </ol>
+          </div>
+
+          <div class="success-footer">
+            <a href="/" class="btn btn-secondary">
+              <i class="fa-solid fa-house"></i> Return to Homepage
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-text">SOFTWARE <span class="accent-text">BECHI</span></span>
+        <p class="footer-tagline">Engineered for reliability. Delivered with precision.</p>
+      </div>
+      <p class="footer-copy">&copy; 2026 SOFTWARE BECHI Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('clientOnboardForm');
+      const submitBtn = document.getElementById('btnSubmitOnboard');
+      const onboardSuccess = document.getElementById('onboardSuccess');
+      const actionSignWellBox = document.getElementById('actionSignWellBox');
+      const btnSignContract = document.getElementById('btnSignContract');
+      const successMessage = document.getElementById('successMessage');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const fullName = document.getElementById('fullName').value.trim();
+        const workEmail = document.getElementById('workEmail').value.trim();
+        const companyName = document.getElementById('companyName').value.trim();
+        const projectType = document.getElementById('projectType').value;
+        const budget = parseFloat(document.getElementById('budget').value) || 5000;
+        const projectNotes = document.getElementById('projectNotes').value.trim();
+
+        if (!fullName || !workEmail || !companyName || !projectType) {
+          alert('Please fill out all required fields.');
+          return;
+        }
+
+        const originalBtnHtml = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Onboarding...';
+
+        try {
+          const response = await fetch('/api/onboard', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: fullName,
+              email: workEmail,
+              company: companyName,
+              projectType: projectType,
+              amount: budget,
+              notes: projectNotes
+            })
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.success) {
+            form.style.display = 'none';
+            onboardSuccess.style.display = 'block';
+
+            successMessage.innerHTML = `Thank you <strong>${fullName}</strong>! We have registered <strong>${companyName}</strong> and initialized your project pipeline.`;
+
+            if (data.signwell && data.signwell.signingUrl) {
+              btnSignContract.href = data.signwell.signingUrl;
+              actionSignWellBox.style.display = 'block';
+            }
+
+            window.scrollTo({ top: 100, behavior: 'smooth' });
+          } else {
+            alert(data.error || 'Failed to submit onboarding request. Please try again.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+          }
+        } catch (err) {
+          alert('Network error: ' + err.message);
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
